@@ -10,7 +10,7 @@ Keep these files in the same folder.
 
 | File | Purpose |
 |---|---|
-| start.bat | Double-click this file to open the website on Windows. |
+| start.bat | Windows only. Double-click this file to open the website. |
 | README.md | These instructions |
 | server.py | The website |
 | signup.py | The validation rules. The website uses this file. |
@@ -19,7 +19,13 @@ No other packages are required. The programs use the Python 3 standard library.
 
 Python may create a folder named `__pycache__` after a run. That folder is not part of the submission.
 
-## Run the website
+The folder can sit anywhere on the computer. `start.bat`, `server.py`, and `signup.py` must stay together in that folder.
+
+The website runs only on the computer where it was started. Other computers cannot open it. The page address is:
+
+http://127.0.0.1:8765
+
+## Run the website on Windows
 
 1. If Python 3 is not installed, download it from https://www.python.org/downloads/windows/ . On the first screen of the installer, check **Add python.exe to PATH**, then finish the install.
 2. Open the quiz folder.
@@ -28,13 +34,28 @@ Python may create a folder named `__pycache__` after a run. That folder is not p
 
 Leave the black window open while you use the page. Close that window when you are finished. Closing it stops the website.
 
-If the browser does not open by itself, open Microsoft Edge and go to:
-
-http://127.0.0.1:8765
+If the browser does not open by itself, open Microsoft Edge and go to http://127.0.0.1:8765
 
 If start.bat says Python was not found, install Python as described in step 1, then double-click start.bat again.
 
-The website runs only on this computer. Other computers cannot open it.
+## Run the website on macOS
+
+`start.bat` does not start the website on a Mac. Use Terminal instead.
+
+1. If Python 3 is not installed, download it from https://www.python.org/downloads/macos/ and finish the install.
+2. Open the Terminal app.
+3. Type `cd` and then a space. Do not press Return yet.
+4. Drag the quiz folder onto the Terminal window. The folder path appears after `cd`.
+5. Press Return.
+6. Type this command and press Return:
+
+    python3 server.py
+
+7. Leave the Terminal window open. When it prints `XYZ Company sign-up: http://127.0.0.1:8765`, open Safari and go to that address.
+8. Fill in the four fields and click **Create account**.
+9. To stop the website, click the Terminal window and press Control-C.
+
+If Terminal says that python3 was not found, install Python as described in step 1, then repeat from step 2.
 
 ## Accepted format
 
