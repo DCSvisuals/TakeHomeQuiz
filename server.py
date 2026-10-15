@@ -9,6 +9,8 @@ back on the page. Nothing is sent to a database or a shell.
 import html
 import socketserver
 import sys
+import threading
+import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs
 
@@ -336,10 +338,21 @@ class SignUpHandler(BaseHTTPRequestHandler):
         sys.stderr.write("%s - %s\n" % (self.address_string(), fmt % args))
 
 
+def parse_args(argv):
+    """Return (port, open_browser). A bare number chooses the port."""
+    open_browser = "--open" in argv
+    numbers = [arg for arg in argv if arg != "--open"]
+    port = int(numbers[0]) if numbers else DEFAULT_PORT
+    return port, open_browser
+
+
 def main():
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PORT
+    port, open_browser = parse_args(sys.argv[1:])
     httpd = SignUpServer((HOST, port), SignUpHandler)
-    print(f"XYZ Company sign-up: http://{HOST}:{port}", flush=True)
+    url = f"http://{HOST}:{port}"
+    print(f"XYZ Company sign-up: {url}", flush=True)
+    if open_browser:
+        threading.Timer(0.5, lambda: webbrowser.open(url)).start()
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

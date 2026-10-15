@@ -6,73 +6,35 @@ The checks reject unexpected characters. A value that contains SQL-injection or 
 
 ## Files
 
-These three files must stay in the same folder.
+Keep these files in the same folder.
 
 | File | Purpose |
 |---|---|
+| start.bat | Double-click this file to open the website on Windows. |
 | README.md | These instructions |
-| server.py | The website. Use this file for marking. |
-| signup.py | The validation rules. The website uses this file. It can also be run on its own. |
+| server.py | The website |
+| signup.py | The validation rules. The website uses this file. |
 
-No other packages are required. Both programs use the Python 3 standard library.
+No other packages are required. The programs use the Python 3 standard library.
 
 Python may create a folder named `__pycache__` after a run. That folder is not part of the submission.
 
-## Run the website on Windows
+## Run the website
 
-Use Command Prompt. The steps below do not use Windows PowerShell.
+1. If Python 3 is not installed, download it from https://www.python.org/downloads/windows/ . On the first screen of the installer, check **Add python.exe to PATH**, then finish the install.
+2. Open the quiz folder.
+3. Double-click **start.bat**.
+4. The sign-up page opens in the browser. Fill in the four fields and click **Create account**.
 
-1. Install Python 3 if it is not already installed. Download it from https://www.python.org/downloads/windows/ and run the installer. On the first installer screen, turn on **Add python.exe to PATH**, then click Install Now.
-2. Open File Explorer and open the folder that contains `README.md`, `server.py`, and `signup.py`.
-3. Click the address bar at the top of that folder window. The folder path becomes highlighted.
-4. Type `cmd` and press Enter. A Command Prompt window opens in this folder. Its title should show the folder path.
-5. In that Command Prompt window, type this command and press Enter:
+Leave the black window open while you use the page. Close that window when you are finished. Closing it stops the website.
 
-    python server.py
+If the browser does not open by itself, open Microsoft Edge and go to:
 
-6. Leave the Command Prompt window open. When the server is ready, it prints this line:
+http://127.0.0.1:8765
 
-    XYZ Company sign-up: http://127.0.0.1:8765
+If start.bat says Python was not found, install Python as described in step 1, then double-click start.bat again.
 
-7. Open Microsoft Edge or another web browser.
-8. Click the address bar, type the address below, and press Enter:
-
-    http://127.0.0.1:8765
-
-9. The XYZ Company sign-up page opens. Fill in the four fields and click **Create account**.
-10. To stop the website, click the Command Prompt window and press Ctrl+C. If Windows asks you to terminate the batch job, type `Y` and press Enter.
-
-The page loads only while the Command Prompt window is still running that command. Closing the window stops the website.
-
-The site listens only on this computer, at address 127.0.0.1, port 8765. It is not reachable from other computers.
-
-### If the command is not recognized
-
-If Command Prompt says that `python` is not recognized, close the window and repeat steps 2 to 4 so a new Command Prompt opens in this folder. Then type this command and press Enter:
-
-    py server.py
-
-Use the same address in the browser: http://127.0.0.1:8765
-
-### If port 8765 is already in use
-
-Type this command instead:
-
-    python server.py 8080
-
-Then open this address in the browser:
-
-    http://127.0.0.1:8080
-
-If you had to use `py` above, the command is `py server.py 8080`.
-
-## Optional: run the same checks without the website
-
-From the same Command Prompt window, in this folder, type:
-
-    python signup.py
-
-The program asks for the four fields one at a time. Type each value and press Enter. It uses the same rules as the website. If `python` is not recognized, type `py signup.py` instead.
+The website runs only on this computer. Other computers cannot open it.
 
 ## Accepted format
 
